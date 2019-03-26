@@ -3,9 +3,17 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { Keyboard } from '@ionic-native/keyboard';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { AbbyyRTR } from '@ionic-native/abbyy-rtr';
+
+import { SignaturePadModule } from 'angular2-signaturepad';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { AppProvider } from '../providers/app/app';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -14,17 +22,27 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      scrollPadding: false,
+      scrollAssist: true,
+      autoFocusAssist: false
+    }),
+    SignaturePadModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Keyboard,
+    Camera,
+    AbbyyRTR,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AppProvider
   ]
 })
 export class AppModule {}

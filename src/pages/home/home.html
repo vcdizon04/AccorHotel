@@ -1,14 +1,494 @@
-<ion-header>
-  <ion-navbar>
+<!-- <ion-header>
+  <ion-navbar transparent>
     <ion-title>
       Ionic Blank
     </ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
+<div *ngIf="currentPage !== 'userDetails' &&  currentPage !== 'folio'" style="    z-index: 1;
+height: 100%;
+width: 47.8%;
+background-color: rgba(0, 0, 0, 0.18);
+top: 0;
+right: 3%;
+position: fixed;">
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+</div>
+
+<ion-content class="bg-image">
+  <ion-grid no-padding>
+    <ion-row class="custom" text-center>
+      <ion-col class="custom">
+        <img class="logo" src="assets/imgs/AccorHotel/logo.png" alt="">
+        <!-- <div text-center *ngIf="currentPage === 'verification'" class="verification">
+          <div class="container">
+            <img src="assets/imgs/AccorHotel/hotel image.jpg" alt="">
+            <p>CLASSIC ROOM, 1 king-size bed or twin beds, Kids Club and private beach ​</p>
+          </div>
+        </div> -->
+        <!-- <div text-center *ngIf="currentPage === 'dtcm2'" class="dtcm left-column">
+            <div class="container">
+              <p>UPLOAD AND VERIFICATION SUCCESSFUL!​ ​​</p>
+              <img src="assets/imgs/AccorHotel/cloud.png" alt="">
+            </div>
+          </div> -->
+      </ion-col>
+      <ion-col class="gray-box">
+
+        <div class="gray-box-content">
+          <div class="time">
+            <h1 class="header">{{time}} 30°</h1> <img class="header" src="assets/imgs/AccorHotel/weather.png" alt="">
+          </div>
+          <hr class="header" align="right">
+          <h5>{{date}}</h5>
+          <div class="content-container">
+              <!-- <input type="file" name="" class="face">
+              <input type="file" name="" class="face">
+              <button (click)="try()">dsadsad</button> -->
+            <div *ngIf="currentPage === 'home'" class="buttons">
+              <ion-row text-center>
+                <ion-col>
+                  <button (click)="checkIn()" ion-button large color="light">CHECK-IN</button>
+                </ion-col>
+              </ion-row>
+              <ion-row text-center>
+                <ion-col>
+                  <button (click)="checkOut()" ion-button large color="light">CHECK-OUT</button>
+                </ion-col>
+              </ion-row>
+              <ion-row text-center>
+                <ion-col>
+                  <button ion-button large color="light">INVOICE</button>
+                </ion-col>
+              </ion-row>
+            </div>
+            <div text-center class="checkinOption" *ngIf="currentPage === 'checkinOption'">
+                <h4>Choose Check-in Option</h4>
+                <hr margin-bottom>
+                  <ion-row text-center>
+                    <ion-col>
+                      <div class="animate-grow option">
+                          PASSPORT
+                      </div>
+                    </ion-col>
+                    <ion-col >
+                      <div class="animate-grow option">
+                          QR CODE
+                      </div>
+                      </ion-col>
+                  </ion-row>
+                  <ion-row text-center>
+                      <ion-col>
+                        <div class="animate-grow option">
+                            GCC CARD
+                        </div>
+                      </ion-col>
+                      <ion-col >
+                        <div style="font-size: 12px; padding: 7px" class="animate-grow  option">
+                            LE CLUB MEMBERSHIP LOGIN
+                        </div>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row text-center>
+                        <ion-col >
+                         <div (click)="next()" style="font-size: 12px; padding: 10px" class="animate-grow option">
+                            CONFIRMATION NUMBER
+                         </div>
+                        </ion-col>
+                        <ion-col>
+                          </ion-col>
+                      </ion-row>
+
+                <!-- <div class="input-container">
+                      <input type="text"  placeholder="Enter Confirmation Number Here​" [(ngModel)]="confirmNumber">
+                  </div> -->
+              </div>
+
+            <div text-center class="confirmNumber" *ngIf="currentPage === 'confirmNumber'">
+              <h4>Confirmation Number</h4>
+              <hr margin-bottom>
+              <ion-item class="input-container">
+                <ion-input placeholder="Enter Confirmation Number Here​" [(ngModel)]="confirmNumber" type="number"></ion-input>
+              </ion-item>
+              <!-- <div class="input-container">
+                    <input type="text"  placeholder="Enter Confirmation Number Here​" [(ngModel)]="confirmNumber">
+                </div> -->
+            </div>
+
+          
+            <div text-center *ngIf="currentPage === 'verification'" class="verification">
+              <h4>Verify Your Reservation​</h4>
+              <hr margin-bottom>
+
+              <div class="container">
+                
+                <!-- <p>First Name: <span margin-left class="bold">{{bookingDetails?.resultInfos?.hotelReservation.resGuests.resGuest[0].profiles.profile[0].customer.personName.firstName}}</span></p>
+                <p>Last Name: <span margin-left class="bold">{{bookingDetails?.resultInfos.hotelReservation.resGuests.resGuest[0].profiles.profile[0].customer.personName.lastName}}</span></p>
+                <p>Arrival Date: <span margin-left class="bold">{{formatDate(bookingDetails?.resultInfos.hotelReservation.resGuests.resGuest[0].arrivalTransport.time)}}</span></p>
+                <p>Departure Date: <span margin-left class="bold">{{formatDate(bookingDetails?.resultInfos.hotelReservation.resGuests.resGuest[0].departureTransport.time)}}</span></p>
+                <p>Total Room Night(s): <span margin-left class="bold">{{bookingDetails?.resultInfos.hotelReservation.roomStays.roomStay[0].total.decimals}} Night</span></p>
+                <p> Room Type: <span margin-left class="bold">{{bookingDetails?.resultInfos.hotelReservation.roomStays.roomStay[0].roomTypes.roomType[0].roomToChargeShortDescription.text.value}}</span></p>
+                <p>Add-ons: <span margin-left  class="bold">N/A</span></p> -->
+
+
+                <p>First Name: <span margin-left class="bold">{{bookingDetails?.firstName}}</span></p>
+                <p>Last Name: <span margin-left class="bold">{{bookingDetails?.lastName}}</span></p>
+                <p>Arrival Date: <span margin-left class="bold">{{bookingDetails?.arrivalDate}}</span></p>
+                <p>Departure Date: <span margin-left class="bold">{{bookingDetails?.departureDate}}</span></p>
+                <p>Total Room Night(s): <span margin-left class="bold">{{bookingDetails?.totalRoomNights}}</span></p>
+                <p> Room Type: <span margin-left class="bold">{{bookingDetails?.type}}</span></p>
+                <p>Add-ons: <span margin-left  class="bold">{{bookingDetails?.addOns}}</span></p>
+
+
+              </div>
+            </div>
+            <div text-center *ngIf="currentPage === 'passport'" class="passport">
+              <h4 text-capitalize>Take Photo of​ your Passport</h4>
+              <hr margin-bottom>
+
+              <div class="container">
+                <img [src]="selectedImage ? selectedImage : 'assets/imgs/AccorHotel/passport.png'" alt="">
+                <!-- <button ion-button *ngIf="!selectedImage" outline color="dark" style="position: relative;
+                top: -132px;" (click)="capture()">Capture</button> -->
+              </div>
+            </div>
+
+            <div *ngIf="currentPage === 'userDetails'" class="userDetails">
+                <ion-row class="container" text-left>
+                    <ion-col>
+                        <p>FIRST NAME: <span margin-left class="bold">{{textRecognized?.textLines[0].text.split('«')[1].replace('<', ' ').replace('<', ' ')}}</span></p>
+                        <p>LAST NAME: <span margin-left class="bold">{{textRecognized?.textLines[0].text.split('«')[0].substring(5)}}</span></p>
+                        <p>ARABIC NAME: <span margin-left  class="bold">N/A</span></p>
+                        <p>ARRIVAL DATE: <span margin-left class="bold">{{bookingDetails?.arrivalDate}}</span></p>
+                        <p>DEPARTURE DATE: <span margin-left class="bold">{{bookingDetails?.departureDate}}</span></p>
+                        <p>TOTAL RM NIGHT(S): <span margin-left class="bold">{{bookingDetails?.totalRoomNights}}</span></p>
+                        <p>ROOM TYPE: <span margin-left class="bold">{{bookingDetails?.type}}</span></p>
+                        <p>ADD ONS: <span margin-left class="bold">N/A</span></p>
+                        <p>NUMBER OF ADULT: <span margin-left class="bold">2</span></p>
+                        <p>NUMBER OF CHILD: <span margin-left class="bold">2</span></p>
+                        <p>TOTAL(TAX 7%): <span margin-left class="bold">150</span></p>
+                        <p>PAYMENT METHOD: <span margin-left class="bold">Credit Card</span></p>
+                        <p>RELATIONSHIP CODE: <span margin-left class="bold">
+                              <select style="    width: 98px;
+                           ">
+                                <option style="display: none;" value="">Please Select</option>
+                                <option value="Business Associate">Business Associate</option>
+                                <option value="Family Helper">Family Helper</option>
+                                <option value="Family Member">Family Member</option>
+                                <option value="Friend">Friend</option>
+                                <option value="Visitor">Visitor</option>
+                              </select>
+    
+                        </span></p>
+                        <p>HEARING IMPAIRED: <span margin-left class="bold"><input type="radio" name="himpaired" checked="true" value="no"> No <input margin-left type="radio" name="himpaired" value="yes">Yes</span></p>
+                        <p>MOBILITY IMPAIRED: <span margin-left class="bold"><input type="radio" name="mimpaired" checked="true"  value="no"> No <input margin-left type="radio" name="mimpaired" value="yes">Yes</span></p>
+                    </ion-col>
+                    <ion-col>
+                        <p>GENDER: <span margin-left class="bold">{{textRecognized?.textLines[1].text.indexOf('F')  > -1 ? 'Female' : 'Male'}}</span></p>
+                        <p>EMIRATE CODE: <span margin-left class="bold">
+                            <select style="    width: 98px;
+                              ">
+                                <option style="display: none;" value="">Please Select</option>
+                                <option value="Dubai">Dubai</option>
+                                <option value="Abu Dhabi">Abu Dhabi</option>
+                                <option value="Sharjah">Sharjah</option>
+                                <option value="Ras Alkhaimah">Ras Alkhaimah</option>
+                                <option value="Ajman">Ajman</option>
+                                <option value="Al Ain">Al Ain</option>
+                                <option value="Umm Al Quwain">Umm Al Quwain</option>
+                                <option value="Western Areas">Western Areas</option>
+                              </select>
+    
+                        </span></p>
+                        <p>DOCUMENT NO: <span margin-left  class="bold">{{textRecognized?.textLines[1].text.substring(0,9)}}</span></p>
+                        <p>EXPIRY DATE: <span margin-left class="bold">{{formatExpiryDate(textRecognized?.textLines[1].text.substring(21, 27))}}</span></p>
+                        <!-- <p>ISSUE DATE: <span margin-left class="bold">{{bookingDetails?.issueDate}}</span></p> -->
+                        <p>COUNTRY CODE: <span margin-left class="bold">{{textRecognized?.textLines[0].text.substring(2,5)}}</span></p>
+                        <!-- <p>BIRTH PLACE: <span margin-left class="bold">{{bookingDetails?.birthPlace}}</span></p> -->
+                        <p>CONTACT NUMBER: <span margin-left class="bold"><input style="width:127px" type="number" value="" name="" id=""></span></p>
+                        <!-- <p>NATIONALITY: <span margin-left class="bold">{{bookingDetails?.nationality}}</span></p> -->
+                        <p>EMAIL ADDRESS: <span margin-left class="bold"><input style="width:141px" type="email" value="" name="" id=""></span></p>
+                        <p>RESIDENCE COUNTRY PHONE: <span margin-left class="bold"><input style="width: 69px;" type="number"></span></p>
+                        <p>MOBILE: <span margin-left class="bold"><input style="width:190px;" type="number" value=""></span></p>
+                        <p>VISIT PURPOSE: <span margin-left class="bold">
+                            <select style="width:98px;">
+                                <option style="display: none;" value="">Please Select</option>
+                                <option value="Air/Ship crew">Air/Ship crew</option>
+                                <option value="Business/MICE and professional">Business/MICE and professional</option>
+                                <option value="Health treatment/reasons">Health treatment/reasons</option>
+                                <option value="Leisure, recreation and holidays">Leisure, recreation and holidays</option>
+                                <option value="Religion/pilgrimages">Religion/pilgrimages</option>
+                                <option value="Sports/participation">Sports/participation</option>
+                                <option value="Visiting friends and relatives">Visiting friends and relatives</option>
+                              </select>
+                        </span></p>
+                        <p>VISUALLY IMPAIRED: <span margin-left class="bold"><input type="radio" name="vimpaired" checked="true" value="no"> No <input margin-left type="radio" name="vimpaired" value="yes">Yes</span></p>
+                        <p>OTHER DISABILITIES: <span margin-left class="bold"><input type="radio" name="oimpaired" checked="true" value="no"> No <input margin-left type="radio" name="oimpaired" value="yes">Yes</span></p>
+                    </ion-col>
+                  </ion-row>
+
+
+              <!-- <ion-row class="container" text-left>
+                <ion-col>
+                    <p>FIRST NAME: <span margin-left class="bold">{{textRecognized?.TextDetections[5].DetectedText}}</span></p>
+                    <p>LAST NAME: <span margin-left class="bold">{{textRecognized?.TextDetections[7].DetectedText}}</span></p>
+                    <p>ARABIC NAME: <span margin-left  class="bold">N/A</span></p>
+                    <p>ARRIVAL DATE: <span margin-left class="bold">{{formatDate(bookingDetails?.resultInfos.hotelReservation.resGuests.resGuest[0].arrivalTransport.time)}}</span></p>
+                    <p>DEPARTURE DATE: <span margin-left class="bold">{{formatDate(bookingDetails?.resultInfos.hotelReservation.resGuests.resGuest[0].departureTransport.time)}}</span></p>
+                    <p>TOTAL RM NIGHT(S): <span margin-left class="bold">{{bookingDetails?.resultInfos.hotelReservation.roomStays.roomStay[0].total.decimals}} Nights</span></p>
+                    <p>ROOM TYPE: <span margin-left class="bold">{{bookingDetails?.resultInfos.hotelReservation.roomStays.roomStay[0].roomTypes.roomType[0].roomToChargeShortDescription.text.value}}</span></p>
+                    <p>ADD ONS: <span margin-left class="bold"></span></p>
+                    <p>NUMBER OF ADULT: <span margin-left class="bold">{{bookingDetails?.resultInfos.hotelReservation.roomStays.roomStay[0].guestCounts.guestCount[0].count}}</span></p>
+                    <p>NUMBER OF CHILD: <span margin-left class="bold">{{bookingDetails?.resultInfos.hotelReservation.roomStays.roomStay[0].guestCounts.guestCount[1].count}}</span></p>
+                    <p>TOTAL(TAX 7%): <span margin-left class="bold">{{bookingDetails?.resultInfos.hotelReservation.roomStays.roomStay[0].expectedCharges.chargesForPostingDate[0].roomRateAndPackages.totalCharges}}</span></p>
+                    <p>PAYMENT METHOD: <span margin-left class="bold">Credit Card</span></p>
+                    <p>RELATIONSHIP CODE: <span margin-left class="bold">
+                          <select style="    width: 98px;
+                       ">
+                            <option style="display: none;" value="">Please Select</option>
+                            <option value="Business Associate">Business Associate</option>
+                            <option value="Family Helper">Family Helper</option>
+                            <option value="Family Member">Family Member</option>
+                            <option value="Friend">Friend</option>
+                            <option value="Visitor">Visitor</option>
+                          </select>
+
+                    </span></p>
+                    <p>HEARING IMPAIRED: <span margin-left class="bold"><input type="radio" name="himpaired" checked="true" value="no"> No <input margin-left type="radio" name="himpaired" value="yes">Yes</span></p>
+                    <p>MOBILITY IMPAIRED: <span margin-left class="bold"><input type="radio" name="mimpaired" checked="true"  value="no"> No <input margin-left type="radio" name="mimpaired" value="yes">Yes</span></p>
+                </ion-col>
+                <ion-col>
+                    <p>GENDER: <span margin-left class="bold"></span></p>
+                    <p>EMIRATE CODE: <span margin-left class="bold">
+                        <select style="    width: 98px;
+                          ">
+                            <option style="display: none;" value="">Please Select</option>
+                            <option value="Dubai">Dubai</option>
+                            <option value="Abu Dhabi">Abu Dhabi</option>
+                            <option value="Sharjah">Sharjah</option>
+                            <option value="Ras Alkhaimah">Ras Alkhaimah</option>
+                            <option value="Ajman">Ajman</option>
+                            <option value="Al Ain">Al Ain</option>
+                            <option value="Umm Al Quwain">Umm Al Quwain</option>
+                            <option value="Western Areas">Western Areas</option>
+                          </select>
+
+                    </span></p>
+                    <p>DOCUMENT NO: <span margin-left  class="bold">{{textRecognized?.TextDetections[8].DetectedText}}</span></p>
+                    <p>EXPIRY DATE: <span margin-left class="bold">{{textRecognized?.TextDetections[6].DetectedText}}</span></p>
+                    <p>ISSUE DATE: <span margin-left class="bold">{{textRecognized?.TextDetections[4].DetectedText}}</span></p>
+                    <p>COUNTRY CODE: <span margin-left class="bold">{{bookingDetails?.resultInfos.hotelReservation.resGuests.resGuest[0].profiles.profile[0].addresses.nameAddress[0].countryCode}}</span></p>
+                    <p>BIRTH PLACE: <span margin-left class="bold">{{textRecognized?.TextDetections[4].DetectedText}}</span></p>
+                    <p>CONTACT NUMBER: <span margin-left class="bold"><input style="width:127px" type="number" [value]="bookingDetails?.resultInfos.hotelReservation.resGuests.resGuest[0].profiles.profile[0].phones.namePhone[0].phoneNumber" name="" id=""></span></p>
+                    <p>NATIONALITY: <span margin-left class="bold"></span></p>
+                    <p>EMAIL ADDRESS: <span margin-left class="bold"><input style="width:141px" type="email" [value]="bookingDetails?.resultInfos.hotelReservation.resGuests.resGuest[0].profiles.profile[0].eMails.nameEmail[0].value" name="" id=""></span></p>
+                    <p>RESIDENCE COUNTRY PHONE: <span margin-left class="bold"><input style="width: 69px;" type="number"></span></p>
+                    <p>MOBILE: <span margin-left class="bold"><input style="width:190px;" type="number" [value]="bookingDetails?.resultInfos.hotelReservation.resGuests.resGuest[0].profiles.profile[0].phones.namePhone[0].phoneNumber"></span></p>
+                    <p>VISIT PURPOSE: <span margin-left class="bold">
+                        <select style="width:98px;">
+                            <option style="display: none;" value="">Please Select</option>
+                            <option value="Air/Ship crew">Air/Ship crew</option>
+                            <option value="Business/MICE and professional">Business/MICE and professional</option>
+                            <option value="Health treatment/reasons">Health treatment/reasons</option>
+                            <option value="Leisure, recreation and holidays">Leisure, recreation and holidays</option>
+                            <option value="Religion/pilgrimages">Religion/pilgrimages</option>
+                            <option value="Sports/participation">Sports/participation</option>
+                            <option value="Visiting friends and relatives">Visiting friends and relatives</option>
+                          </select>
+                    </span></p>
+                    <p>VISUALLY IMPAIRED: <span margin-left class="bold"><input type="radio" name="vimpaired" checked="true" value="no"> No <input margin-left type="radio" name="vimpaired" value="yes">Yes</span></p>
+                    <p>OTHER DISABILITIES: <span margin-left class="bold"><input type="radio" name="oimpaired" checked="true" value="no"> No <input margin-left type="radio" name="oimpaired" value="yes">Yes</span></p>
+                </ion-col>
+              </ion-row> -->
+
+              
+              <ion-row margin-vertical>
+                <ion-col no-padding>
+                  <ion-item>
+                    <ion-label>I have read and accepted the Terms & Conditions of my accommodation.​</ion-label>
+                    <ion-checkbox [(ngModel)]="isTermCheked" color="dark" ></ion-checkbox>
+                  </ion-item>
+                </ion-col>
+              </ion-row>
+              <ion-row >
+                  <ion-col> <button float-left (click)="quit()" ion-button clear color="light">RESTART</button> </ion-col>
+                  <ion-col>
+                    <button (click)="back()" ion-button color="light">BACK</button>
+                    <button (click)="next()" ion-button color="light">NEXT</button>
+                  </ion-col>
+              </ion-row>
+              
+            </div>
+            <div *ngIf="currentPage === 'folio'" class="folio">
+                <ion-row margin-bottom class="container" text-left>
+                  <ion-col text-center>
+                      <div class="person">
+                        <img src="assets/imgs/AccorHotel/folio.png" alt="">
+                      </div>
+                  </ion-col>
+                  <ion-col>
+                    <h4>Folio</h4>
+                    <p no-margin>Room No: <span margin-left>{{folioDetails?.roomNumber}}</span></p>
+                    <p no-margin>Membership No: <span margin-left></span></p>
+                    <p no-margin>A/R Number: <span margin-left></span></p>
+                    <p no-margin>Group Code: <span margin-left></span></p>
+                    <p no-margin>Company Name: <span margin-left></span></p>
+                    <p no-margin>PO REF: <span margin-left></span></p>
+
+                  </ion-col>
+                  <ion-col>
+                    <h4>&nbsp;</h4>
+                    <p no-margin>Arrival: <span margin-left>{{bookingDetails?.arrivalDate}}​</span></p>
+                    <p no-margin>Departure: <span margin-left>{{bookingDetails?.departureDate}}​</span></p>
+                    <p no-margin>Page No: <span margin-left>1 of 1​</span></p>
+                    <p no-margin>Invoice No: <span margin-left>1234567​</span></p>
+                    <p no-margin>Confirmation No: <span margin-left>{{folioDetails?.confirmNumber}}</span></p>
+                    <p no-margin>Cashier No: <span margin-left>123</span></p>
+                  </ion-col>
+                </ion-row>
+                <ion-row class="table" margin-bottom text-center>
+                  <ion-col col-2>
+                   <div  class="field">
+                      <p>Date</p>
+                   </div>
+                    <p>02-27-19</p>
+                    <p>03-01-19</p>
+                    <p>03-01-19</p>
+                    <p>03-01-19</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+
+                  </ion-col>
+                  <ion-col col-5>
+                    <div  class="field">
+                    <p>Description</p>
+                    </div>
+                    <p>Incidental Payment​</p>
+                    <p>Allowance Room Charge​</p>
+                    <p>Room Charge, VAT 6%</p>
+                    <p>Allowance Room Revenue Svc​</p>
+                    <p>&nbsp;</p>
+                    <p>TOTAL</p>
+                    <p>BALANCE</p>
+                  </ion-col>
+                  <ion-col col-2>
+                  <div class="field">
+                      <p >Charge(s)</p>
+                  </div>
+                  <p>&nbsp;</p>
+                  <p>2,567.53</p>
+                  <p>154.05</p>
+                  <p>256.75</p>
+                  <p>&nbsp;</p>
+                  <p>2,980.33</p>
+                  <p>0</p>
+
+
+                  </ion-col>
+                  <ion-col col-3>
+                    <div class="field">
+                    <p >Credit(s)</p>
+                    </div>
+                    <p>3,900.00</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>3,900.00</p>
+                    <p>&nbsp;</p>
+
+
+
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col> <button float-left (click)="quit()" ion-button clear color="light">RESTART</button> </ion-col>
+                    <ion-col>
+                      <button (click)="back()" ion-button color="light">BACK</button>
+                      <button (click)="next()" ion-button color="light">CHECK-OUT</button>
+                    </ion-col>
+                </ion-row>
+              </div>
+            
+          <div text-center *ngIf="currentPage === 'dtcm'" class="dtcm">
+              <h4>DTCM Verification</h4>
+              <hr margin-bottom>
+
+              <div class="container">
+                <p><em>Uploading Guest Information for DTCM Verification.​</em></p>
+                <p><em class="bold">Please Wait…​</em></p>
+              </div>
+          </div> 
+          <div text-center *ngIf="currentPage === 'dtcm2'" class="dtcm">
+              <h4>DTCM Verification</h4>
+              <hr margin-bottom>
+                
+              <div class="container">
+                  <p>UPLOAD AND VERIFICATION SUCCESSFUL!​ ​​</p>
+                  <img src="assets/imgs/AccorHotel/cloud.png" alt="">
+                </div>
+          </div>
+          <div text-center [hidden]="currentPage !== 'signature'" class="signature">
+              <h4>Signature</h4>
+              <hr margin-bottom>
+
+              <div text-left class="container">
+                <p>Sign here: <button (click)="clear()" float-right ion-button  icon-only >
+                    <ion-icon color="dark" name="trash"></ion-icon>
+                  </button> </p>
+                <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
+              </div>
+          </div>
+          <div text-center *ngIf="currentPage === 'checkInSuccess'" class="checkInSuccess">
+              <h4>Check-in Successful!</h4>
+              <hr margin-bottom>
+
+              <div class="container">
+                <p>Please get your room key card at the front desk.</p>
+              </div>
+          </div>
+          <div text-center *ngIf="currentPage === 'roomInfo'" class="roomInfo">
+              <h4>Enter Room Information</h4>
+              <hr margin-bottom>
+
+              <div class="container">
+                <ion-item margin-bottom>
+                  <ion-input [(ngModel)]="roomNumber" type="number" placeholder="Room Number"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input [(ngModel)]="lastName" type="text" placeholder="Last Name"></ion-input>
+                  </ion-item>
+              </div>
+          </div>
+          <div text-center *ngIf="currentPage === 'checkOutSuccess'" class="checkOutSuccess">
+              <h4>Check-out Successful!</h4>
+              <hr margin-bottom>
+
+              <div class="container">
+                <p>Room {{folioDetails?.roomNumber}} successfully checked-out!</p>
+              </div>
+          </div>
+
+
+
+          </div>
+          <ion-row text-center margin-bottom *ngIf="currentPage == 'checkInSuccess' || currentPage == 'checkOutSuccess'">
+              <ion-col> <button  (click)="quit()" ion-button  color="light">EXIT</button> </ion-col>
+            </ion-row>
+
+          <ion-row margin-bottom *ngIf="currentPage !== 'dtcm' && currentPage !== 'home' && currentPage !== 'userDetails' && currentPage !== 'checkInSuccess' && currentPage !== 'folio' && currentPage !== 'checkOutSuccess'" >
+            <ion-col col-4> <button float-left (click)="quit()" ion-button clear color="light">RESTART</button> </ion-col>
+            <ion-col col-8>
+              <button (click)="back()" ion-button color="light">BACK</button>
+              <button (click)="next()" *ngIf="currentPage !== 'signature' && currentPage !== 'checkinOption' && currentPage !== 'passport' " ion-button color="light">NEXT</button>
+              <button (click)="next()" *ngIf="currentPage === 'signature'" ion-button color="light">CHECK-IN</button>      
+              <button  (click)="next()" *ngIf="currentPage === 'passport'" ion-button color="light">Capture</button>
+            </ion-col>
+          </ion-row>
+        </div>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

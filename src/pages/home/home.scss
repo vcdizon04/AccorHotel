@@ -1,3 +1,318 @@
 page-home {
+    // .scroll-content {
+    //     padding: 0 30px 0 30px;
+    // }
 
+    
+    .grid[no-padding]{
+        height: 100%;
+        .row.custom{
+            height: 100%;
+        }
+        .col.gray-box {
+            // background-color: rgba(0, 0, 0, 0.18);
+            margin-right: 20px;
+            padding: 20px;;
+        }
+        .col.custom{
+            padding: 50px 20px 0 20px !important
+        }
+
+        .logo {
+            height: 60px;
+        }
+        // .gray-box::before {
+        //     content: '';
+        //     height: 100%;
+        //     width: 48%;
+        //     background-color: rgba(0, 0, 0, 0.18);
+        //     z-index: -1;
+        //     top: 0;
+        //     right: 3%;
+        //     position: fixed;
+        // }
+        .gray-box {
+            height: 100%;
+            // background-color: rgba(0, 0, 0, 0.18);
+
+        }
+        .gray-box-content{
+            color: #ffffff;
+            text-align: right;
+            height: 100%;
+            hr.header{
+                color: #ffffff;
+                background-color: #ffffff;
+                width: 155px;
+            }
+            h1.header {
+                display: inline;
+                font-size: 2.5rem;
+
+            }
+            h5 {
+                font-size: 1.5rem;
+            }
+            img.header{
+                position: relative;
+                top: 5px;
+                height: 55px;
+            }
+            .content-container {
+                padding: 5px 20px 50px 20px;
+                height: 340px;
+                hr{
+                    color: #ffffff;
+                    background-color: #ffffff;
+                    width: 70px;
+                    height: 2px;
+                    margin-top: 2px;
+                    
+                }
+                h1 {
+                    margin-bottom: 0;
+                }
+            }
+            .buttons {
+                .button{
+                    width: 140px;
+                    // font-size: 2.5rem;
+                }
+            }
+            .confirmNumber{
+                ::placeholder {
+                    // color: red;
+                    font-size: 14px;
+                  }
+                .input-container {
+                    padding-right: 0 !important;
+                    background-color: rgba(255, 255, 255, 0.69);
+                    width: 100%;
+                    display: block;
+                    margin: auto;
+                    padding: 10px;
+                
+                    input{
+                        padding: 5px;
+                        width: 100%;
+                        color: #000000;
+                        background-color: #ffffff;
+                        margin: 0;
+                    }
+                }
+                
+            }
+            .verification {
+                padding: 0px;
+                .container {
+                    color: rgba(0, 0, 0, 0.7);
+                    background-color: rgba(255, 255, 255, 0.69);
+                    p {
+                        font-size: 16px;
+                        margin: .3em 0;
+                        // margin: 0;
+                    }
+                }
+            }
+        }
+    }
+    .bold {
+        font-weight: bold;
+    }
+    .custom-padding{
+
+    }
+    .verification {
+        padding: 141px 85px 0px 85px;
+        .container {
+            padding: 16px;
+            color: #000000c2;
+            background-color: rgba(255, 255, 255, 0.69);
+            p {
+                font-size: 16px;
+                color:rgba(0, 0, 0, 0.7);
+            }
+        }
+    }
+    .passport {
+        
+        height: 282px;
+        .container {
+            height: 206px;
+            // padding: 16px;
+            width: 100%;
+            color: #000000c2;
+            background-color: rgba(255, 255, 255, 0.69);
+            p {
+                font-size: 16px;
+                color:rgba(0, 0, 0, 0.7);
+            }
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    .userDetails {
+        option[value=""][disabled] {
+            display: none;
+          }
+          position: absolute;
+          height: auto;
+          top: 140px;
+    left: -98%;
+    right: 0;
+    width: 669px;
+        background-color: rgba(0, 0, 0, 0.28);
+        padding: 25px;
+        display: block;
+        margin: auto;
+        .row.container {
+            padding: 3px;
+            background-color: #ffffff;
+            color: #000000;
+        }
+        p {
+            margin: .3em 0;
+            font-size: 12px;
+            height: 20px;
+        }
+        input {
+            height: 20px;
+        }
+        input[type="radio"] {
+            height: unset;
+        }
+        .label-md {
+            font-size: 13px;
+        }
+    }
+    .folio {
+        position: fixed;
+        height: auto;
+        width: 100%;
+        top: 140px;
+        left: 0;
+        right: 0;
+        width: 75%;
+        background-color: rgba(0, 0, 0, 0.28);
+        padding: 25px;
+        display: block;
+        margin: auto;
+        .row.container {
+            padding: 3px;
+            // background-color: #ffffff;
+            color: #ffffff;
+        }
+        .col {
+            padding: 0
+        }
+        .field {
+            background-color: #bcbcbc; 
+            padding: 1px; 
+        }
+        p {
+            margin: 0;
+            font-size: 12px;
+           
+        }
+        .table {
+            border: 1px solid #ffffff;
+            p {
+                border-bottom: 1px solid;
+            }
+        }
+        .person {
+            border: 1px solid;
+            border-radius: 5px;
+            margin-right: 35px;
+            img {
+                height: 169px;
+                object-fit: cover;
+            }
+        }
+        
+    }
+    .dtcm.left-column {
+        padding: 141px 85px 0px 85px;
+        .container {
+            padding: 16px;
+            color: #000000c2;
+            background-color: rgba(255, 255, 255, 0.69);
+            p {
+                font-size: 16px;
+                color:rgba(0, 0, 0, 0.7);
+            }
+        }
+    }
+    .dtcm, .checkInSuccess, .roomInfo, .checkOutSuccess{
+        .container {
+            padding: 16px;
+            color: #000000c2;
+            background-color: rgba(255, 255, 255, 0.69);
+            p {
+                font-size: 16px;
+                color:rgba(0, 0, 0, 0.7);
+            }
+        }
+    }
+    .signature{
+        .container {
+            padding: 10px 3px 0 3px;
+            color: #000000c2;
+            background-color: rgba(255, 255, 255, 0.69);
+            p {
+                font-size: 16px;
+                color:rgba(0, 0, 0, 0.7);
+                margin: 0;
+            }
+            canvas {
+                background-color: #ffffff;
+                width: 100%;
+                height: 169px;
+            }
+            .button {
+                background-color: transparent;
+                position: relative;
+                top: -8px;
+                height: 1.8em;
+                box-shadow: none;
+            }
+        }
+    }
+    .navigation {
+        padding: 0 8%;
+    }
+
+    .checkinOption {
+       .option {
+        height: 50px;
+        background-color: #ffffff;
+        color: black;
+        font-size: 16px;
+        padding: 12px;
+       }
+    //    .button-large-md {
+    //     height: 2.8em;
+    //     font-size: 1.5rem;
+    //     padding: 0 1em;
+    //     width: 100%;
+    //     }
+    }
+
+    .animate-grow {
+        // display: inline-block;
+        vertical-align: middle;
+        transform: translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        backface-visibility: hidden;
+        -moz-osx-font-smoothing: grayscale;
+        transition-duration: 0.3s;
+        transition-property: transform;
+    }
+    
+    .animate-grow:focus,
+    .animate-grow:active {
+        transform: scale(1.1);
+    }
 }
